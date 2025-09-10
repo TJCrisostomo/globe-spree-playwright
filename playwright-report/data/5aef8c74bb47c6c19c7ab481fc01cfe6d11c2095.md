@@ -1,0 +1,127 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e6]: Welcome to the Spree Commerce Demo!
+  - banner [ref=e8]:
+    - navigation "Top" [ref=e9]:
+      - generic [ref=e11]:
+        - button "Search" [ref=e14] [cursor=pointer]:
+          - img [ref=e15] [cursor=pointer]
+          - generic [ref=e18] [cursor=pointer]: Search
+        - generic [ref=e19]:
+          - link "Spree Commerce DEMO logo" [ref=e21]:
+            - /url: /?theme_id=2302
+            - img "Spree Commerce DEMO logo" [ref=e22]
+          - generic [ref=e24]:
+            - link "Shop All" [ref=e26]:
+              - /url: https://demo.spreecommerce.org/products
+              - generic [ref=e27]: Shop All
+            - link "Fashion" [ref=e29]:
+              - /url: https://demo.spreecommerce.org/t/categories/fashion
+              - generic [ref=e30]: Fashion
+            - link "Wellness" [ref=e32]:
+              - /url: https://demo.spreecommerce.org/t/categories/wellness
+              - generic [ref=e33]: Wellness
+            - link "New Arrivals" [ref=e35]:
+              - /url: https://demo.spreecommerce.org/t/collections/new-arrivals
+              - generic [ref=e36]: New Arrivals
+            - link "Sale" [ref=e38]:
+              - /url: https://demo.spreecommerce.org/t/collections/on-sale
+              - generic [ref=e39]: Sale
+        - generic [ref=e40]:
+          - button "USD ($) en" [ref=e42] [cursor=pointer]:
+            - generic [ref=e43] [cursor=pointer]: USD ($)
+            - generic [ref=e46] [cursor=pointer]: en
+          - link [ref=e48]:
+            - /url: /account?theme_id=2302
+            - img [ref=e49]
+          - link [ref=e54]:
+            - /url: /account/wishlist?theme_id=2302
+            - img [ref=e56]
+          - link "Items in cart, View bag" [ref=e60]:
+            - /url: /cart?theme_id=2302
+            - img [ref=e61]
+            - generic [ref=e64]: Items in cart, View bag
+      - dialog
+  - generic [ref=e66]:
+    - heading "Login" [level=2] [ref=e67]
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]: Email
+        - textbox "Email" [active] [ref=e71]
+      - generic [ref=e72]:
+        - generic [ref=e73]: Password
+        - textbox "Password" [ref=e74]
+      - generic [ref=e75]:
+        - checkbox "Remember me" [ref=e76] [cursor=pointer]
+        - generic [ref=e77] [cursor=pointer]: Remember me
+      - button "Login" [ref=e79] [cursor=pointer]
+    - generic [ref=e80]:
+      - link "Sign Up" [ref=e81]:
+        - /url: /user/sign_up
+      - link "Forgot password?" [ref=e82]:
+        - /url: /user/password/new
+  - generic [ref=e86]:
+    - heading "Subscribe to our newsletter" [level=2] [ref=e87]:
+      - generic [ref=e88]: Subscribe to our newsletter
+    - generic [ref=e91]: This section lets you capture newsletter sign-ups, with all submissions conveniently recorded in the customer management area of your admin dashboard for easy access and follow-up.
+    - generic [ref=e94]:
+      - textbox "Enter your email" [ref=e95]
+      - button "Submit" [ref=e97] [cursor=pointer]
+  - contentinfo [ref=e99]:
+    - generic [ref=e102]:
+      - link "Spree Commerce DEMO logo" [ref=e104]:
+        - /url: /
+        - img "Spree Commerce DEMO logo" [ref=e105]
+      - generic [ref=e106]:
+        - generic [ref=e108]:
+          - heading "Shop" [level=3] [ref=e109]
+          - list [ref=e110]:
+            - listitem [ref=e111]:
+              - link "Shop All" [ref=e112]:
+                - /url: https://demo.spreecommerce.org/products
+            - listitem [ref=e113]:
+              - link "On sale" [ref=e114]:
+                - /url: https://demo.spreecommerce.org/t/collections/on-sale
+            - listitem [ref=e115]:
+              - link "New arrivals" [ref=e116]:
+                - /url: https://demo.spreecommerce.org/t/collections/new-arrivals
+        - generic [ref=e118]:
+          - heading "Account" [level=3] [ref=e119]
+          - list [ref=e120]:
+            - listitem [ref=e121]:
+              - link "My Account" [ref=e122]:
+                - /url: https://demo.spreecommerce.org/account
+            - listitem [ref=e123]:
+              - link "Favorites" [ref=e124]:
+                - /url: https://demo.spreecommerce.org/account/wishlist
+        - generic [ref=e126]:
+          - heading "Company" [level=3] [ref=e127]
+          - list [ref=e128]:
+            - listitem [ref=e129]:
+              - link "Spree Commerce" [ref=e130]:
+                - /url: https://spreecommerce.org/
+        - generic [ref=e132]:
+          - heading "Info" [level=3] [ref=e133]
+          - list
+      - generic [ref=e135]:
+        - heading "Follow Us" [level=3] [ref=e136]
+        - generic [ref=e137]:
+          - link [ref=e138]:
+            - /url: https://x.com/spreecommerce
+            - img [ref=e139]
+          - link [ref=e143]:
+            - /url: https://www.youtube.com/@SpreecommerceInc
+            - img [ref=e144]
+    - generic [ref=e147]:
+      - generic [ref=e148]:
+        - text: © 2025
+        - link "Spree Commerce DEMO" [ref=e149]:
+          - /url: /
+        - text: . All Rights Reserved..
+      - generic [ref=e150]:
+        - text: Powered by
+        - link "Spree Commerce" [ref=e151]:
+          - /url: https://spreecommerce.org
+```
