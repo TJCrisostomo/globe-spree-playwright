@@ -25,7 +25,7 @@ test.describe('Spree Commerce E2E', () => {
     await auth.logoutIfLoggedIn();
     await auth.openSignUpFromSideMenu();
     await auth.register(email, password);
-    //await expect(page.getByText(/success|account/i)).toBeVisible();
+    await expect(page.getByText(/success|account/i)).toBeVisible();
 
     await auth.logoutIfLoggedIn();
     await home.openAccountMenu();
