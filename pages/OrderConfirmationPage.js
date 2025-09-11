@@ -8,8 +8,7 @@ class OrderConfirmationPage {
 
   //Verify the success of the order
   async verifySuccess() {
-    await expect(this.page.getByText(locators.order.notice)).toBeVisible();
-    await expect(this.page.locator(locators.order.orderNumber)).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Thanks John for your order!' })).toBeVisible();
   }
 }
 

@@ -1,3 +1,4 @@
+const { count } = require('console');
 const locators = require('./locators');
 
 class AuthPage {
@@ -18,25 +19,24 @@ class AuthPage {
     await this.page.getByRole('textbox', { name: 'Password Confirmation' }).fill(password);
     await this.page.getByRole('textbox', { name: 'Email', exact: true }).fill(email);
     await this.page.getByRole('textbox', { name: 'Password', exact: true }).fill(password);
-    await this.page.getByRole('button', { name: 'Sign Up' }).click({ force: true });;
-    await this.page.waitForLoadState();
+    await this.page.getByRole('button', { name: 'Sign Up' }).click();
+    await this.page.waitForURL('/account/orders');
+    await this.page.waitForLoadState('domcontentloaded');
   }
 
   //Login the Created Account
   async login(email, password) {
-    await this.page.locator(locators.auth.loginEmail).fill(email);
-    await this.page.locator(locators.auth.loginPassword).first().fill(password);
-    await this.page
-      .getByRole(locators.auth.loginSubmit.role, { name: locators.auth.loginSubmit.name })
-      .click();
+    await this.page.getByRole('textbox', { name: 'Password' }).first().fill(password);
+    await this.page.getByRole('textbox', { name: 'Email', exact: true }).fill(email);  
+    await this.page.getByRole('button', { name: 'Login' }).click();
   }
 
   //Logout if account is logged in
   async logoutIfLoggedIn() {
     if (
-      await this.page.getByRole(locators.auth.logoutLink.role, { name: locators.auth.logoutLink.name }).count()
+      await this.page.getByRole('button', { name: 'Log out' }).count()
     ) {
-      await this.page.getByRole(locators.auth.logoutLink.role, { name: locators.auth.logoutLink.name }).first().click();
+      await this.page.getByRole('button', { name: 'Log out' }).first().click();
     }
   }
 }

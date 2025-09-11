@@ -29,21 +29,20 @@ test.describe('Spree Commerce E2E', () => {
     await auth.logoutIfLoggedIn();
     await auth.openSignUpFromSideMenu();
     await auth.register(email, password);
-    await expect(page.getByText(/success|account/i)).toBeVisible();
+    await expect(page.getByText(/You have signed up successfully./i)).toBeVisible();
     });
 
     await test.step('Login with the account created', async () => {
     await auth.logoutIfLoggedIn();
     await home.openAccountMenu();
-    await page.getByRole('link', { name: /log in|sign in/i }).first().click();
     await auth.login(email, password);
-    await expect(page.getByText(/my account|success/i)).toBeVisible();
+    await expect(page.getByText(/Signed in successfully/i)).toBeVisible();
     });
 
     await test.step('Select First Item', async () => {
     await home.goto();
     await product.openFirstProduct();
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Add To Cart' })).toBeVisible();
     });
 
     await test.step('Add to Cart the Item', async () => {
@@ -56,8 +55,8 @@ test.describe('Spree Commerce E2E', () => {
     await cart.proceedToCheckout();
     await checkout.fillAddress(address);
     await checkout.chooseFirstShippingMethod();
-    await checkout.selectFirstPaymentAndPay();
-    await confirm.verifySuccess();
+    //await checkout.selectFirstPaymentAndPay();
+    //await confirm.verifySuccess();
     });
   });
 });

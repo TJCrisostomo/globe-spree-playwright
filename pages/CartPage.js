@@ -8,18 +8,13 @@ class CartPage {
 
   //Check the availability of item
   async assertHasItem() {
-    const lineItem = this.page.locator(locators.cart.lineItem).first();
-    await expect(lineItem).toBeVisible();
-    await expect(lineItem.locator(locators.cart.itemName)).toBeVisible();
-    await expect(lineItem.locator(locators.cart.itemQty)).toBeVisible();
-    await expect(lineItem.locator(locators.cart.itemPrice)).toBeVisible();
+    await expect(this.page.getByRole('link', { name: 'Ripped T-Shirt' })).toBeVisible();
+    await expect(this.page.getByText('$55.99 $')).toBeVisible();
   }
 
   //Procedd to checkout
   async proceedToCheckout() {
-    const checkoutBtn = this.page.getByRole(locators.cart.checkoutBtn.role, {
-      name: locators.cart.checkoutBtn.name
-    });
+    const checkoutBtn = this.page.getByRole('link', { name: 'Checkout' });
     if (await checkoutBtn.count()) {
       await checkoutBtn.first().click();
     } else {
