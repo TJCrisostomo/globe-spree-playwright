@@ -5,6 +5,7 @@ class CheckoutPage {
     this.page = page;
   }
 
+  // Fill the address fields
   async fillAddress(address) {
     await this.page.locator(locators.checkout.firstName).first().fill(address.firstName);
     await this.page.locator(locators.checkout.lastName).first().fill(address.lastName);
@@ -22,11 +23,13 @@ class CheckoutPage {
       .getByRole(locators.checkout.saveAndContinue.role, { name: locators.checkout.saveAndContinue.name }).first().click();
   }
 
+  //Select Shipping Method
   async chooseFirstShippingMethod() {
     await this.page.locator(locators.checkout.shippingMethods).first().check();
     await this.page.getByRole(locators.checkout.saveAndContinue.role, { name: locators.checkout.saveAndContinue.name }).first().click();
   }
 
+  //Select Payment
   async selectFirstPaymentAndPay() {
     if (await this.page.locator(locators.checkout.paymentMethods).count()) {
       await this.page.locator(locators.checkout.paymentMethods).first().check();

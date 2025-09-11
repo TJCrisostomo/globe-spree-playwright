@@ -5,11 +5,13 @@ class HomePage {
     this.page = page;
   }
 
+  //Go to home page
   async goto() {
     await this.page.goto('/');
     await this.page.waitForLoadState('domcontentloaded');
   }
 
+  //Go to Open Account Page
   async openAccountMenu() {
     const userIcon = this.page.getByRole(locators.home.userIcon.role, { name: locators.home.userIcon.name }).first();
 

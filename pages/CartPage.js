@@ -6,6 +6,7 @@ class CartPage {
     this.page = page;
   }
 
+  //Check the availability of item
   async assertHasItem() {
     const lineItem = this.page.locator(locators.cart.lineItem).first();
     await expect(lineItem).toBeVisible();
@@ -14,6 +15,7 @@ class CartPage {
     await expect(lineItem.locator(locators.cart.itemPrice)).toBeVisible();
   }
 
+  //Procedd to checkout
   async proceedToCheckout() {
     const checkoutBtn = this.page.getByRole(locators.cart.checkoutBtn.role, {
       name: locators.cart.checkoutBtn.name
