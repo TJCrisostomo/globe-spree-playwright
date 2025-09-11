@@ -11,17 +11,12 @@ class HomePage {
   }
 
   async openAccountMenu() {
-    const userIcon = this.page
-      .getByRole(locators.home.userIcon.role, { name: locators.home.userIcon.name })
-      .first();
+    const userIcon = this.page.getByRole(locators.home.userIcon.role, { name: locators.home.userIcon.name }).first();
 
     if (await userIcon.isVisible()) {
       await userIcon.click();
     } else {
-      await this.page
-        .getByRole(locators.home.accountLink.role, { name: locators.home.accountLink.name })
-        .first()
-        .click();
+      await this.page.getByRole(locators.home.accountLink.role, { name: locators.home.accountLink.name }).first().click();
     }
   }
 }
