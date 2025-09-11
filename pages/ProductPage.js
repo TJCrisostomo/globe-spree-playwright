@@ -12,10 +12,7 @@ class ProductPage {
   }
 
   async addToCart() {
-    await this.page
-      .getByRole(locators.product.addToCartBtn.role, { name: locators.product.addToCartBtn.name })
-      .first()
-      .click();
+    await this.page.getByRole(locators.product.addToCartBtn.role, { name: locators.product.addToCartBtn.name }).first().click();
   }
 
   async goToCart() {
