@@ -19,17 +19,12 @@ class CheckoutPage {
       await this.page.locator(locators.checkout.stateSelect).first().selectOption({ label: address.state });
     }
     await this.page
-      .getByRole(locators.checkout.saveAndContinue.role, { name: locators.checkout.saveAndContinue.name })
-      .first()
-      .click();
+      .getByRole(locators.checkout.saveAndContinue.role, { name: locators.checkout.saveAndContinue.name }).first().click();
   }
 
   async chooseFirstShippingMethod() {
     await this.page.locator(locators.checkout.shippingMethods).first().check();
-    await this.page
-      .getByRole(locators.checkout.saveAndContinue.role, { name: locators.checkout.saveAndContinue.name })
-      .first()
-      .click();
+    await this.page.getByRole(locators.checkout.saveAndContinue.role, { name: locators.checkout.saveAndContinue.name }).first().click();
   }
 
   async selectFirstPaymentAndPay() {
@@ -37,9 +32,7 @@ class CheckoutPage {
       await this.page.locator(locators.checkout.paymentMethods).first().check();
     }
     await this.page
-      .getByRole(locators.checkout.placeOrder.role, { name: locators.checkout.placeOrder.name })
-      .first()
-      .click();
+      .getByRole(locators.checkout.placeOrder.role, { name: locators.checkout.placeOrder.name }).first().click();
   }
 }
 
