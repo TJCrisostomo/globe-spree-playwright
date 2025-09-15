@@ -1,5 +1,3 @@
-//const locators = require('./locators');
-
 class ProductPage {
   constructor(page) {
     this.page = page;

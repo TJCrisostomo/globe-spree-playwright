@@ -1,5 +1,4 @@
 const { expect } = require('@playwright/test');
-//const locators = require('./locators');
 
 class CartPage {
   constructor(page) {

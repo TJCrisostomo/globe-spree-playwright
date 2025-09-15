@@ -1,5 +1,4 @@
 const { count } = require('console');
-//const locators = require('./locators');
 
 class AuthPage {
   constructor(page) {

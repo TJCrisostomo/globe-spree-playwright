@@ -1,5 +1,3 @@
-//const locators = require('./locators');
-
 class CheckoutPage {
   constructor(page) {
     this.page = page;
@@ -17,7 +15,6 @@ class CheckoutPage {
     this.expiryDate = this.page.locator('iframe[title="Secure payment input frame"]').contentFrame().getByRole('textbox', { name: 'Expiration date MM / YY' });
     this.securityCode = this.page.locator('iframe[title="Secure payment input frame"]').contentFrame().getByRole('textbox', { name: 'Security code' });
     this.payNowButton = this.page.getByRole('button', { name: 'Pay now' });
-    //this.goToComplete= this.page.waitForURL('/complete');
   }
 
   // Fill the address fields
