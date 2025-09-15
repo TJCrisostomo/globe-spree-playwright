@@ -12,7 +12,6 @@ test.describe('Spree Commerce E2E', () => {
     const email = uniqueEmail();
     const password = getDefaultPassword();
     const address = exampleAddress();
-
     const home = new HomePage(page);
     const auth = new AuthPage(page);
     const product = new ProductPage(page);
@@ -55,8 +54,8 @@ test.describe('Spree Commerce E2E', () => {
     await cart.proceedToCheckout();
     await checkout.fillAddress(address);
     await checkout.chooseFirstShippingMethod();
-    //await checkout.selectFirstPaymentAndPay();
-    //await confirm.verifySuccess();
+    await checkout.selectFirstPaymentAndPay();
+    await confirm.verifySuccess();
     });
   });
 });

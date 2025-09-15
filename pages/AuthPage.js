@@ -1,42 +1,48 @@
 const { count } = require('console');
-const locators = require('./locators');
+//const locators = require('./locators');
 
 class AuthPage {
   constructor(page) {
     this.page = page;
+    this.myAccount = this.page.getByRole('link', { name: 'My Account' });
+    this.signUp = this.page.getByRole('link', { name: 'Sign Up' });
+    this.passWordConfirmationField = this.page.getByRole('textbox', { name: 'Password Confirmation' });
+    this.emailField = this.page.getByRole('textbox', { name: 'Email', exact: true });
+    this.passwordField = this.page.getByRole('textbox', { name: 'Password', exact: true });
+    this.signUpButton = this.page.getByRole('button', { name: 'Sign Up' });
+    this.goToAccount = this.page.waitForURL('/account/orders');
+    this.loginAccount = this.page.getByRole('button', { name: 'Login' });
+    this.logoutAccount = this.page.getByRole('button', { name: 'Log out' });  
   }
 
   //Opens the My Account Page
   async openSignUpFromSideMenu() {
-      await this.page.getByRole('link', { name: 'My Account' }).click();
-      await this.page.getByRole('link', { name: 'Sign Up' }).click();
-
-    await this.page.waitForLoadState('domcontentloaded');
+      await this.myAccount.click();
+      await this.signUp.click();
   }
 
   //Register Account
   async register(email, password) {
-    await this.page.getByRole('textbox', { name: 'Password Confirmation' }).fill(password);
-    await this.page.getByRole('textbox', { name: 'Email', exact: true }).fill(email);
-    await this.page.getByRole('textbox', { name: 'Password', exact: true }).fill(password);
-    await this.page.getByRole('button', { name: 'Sign Up' }).click();
-    await this.page.waitForURL('/account/orders');
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.passWordConfirmationField.fill(password);
+    await this.emailField.fill(email);
+    await this.passwordField.fill(password);
+    await this.signUpButton.click();
+    await this.goToAccount;
   }
 
   //Login the Created Account
   async login(email, password) {
-    await this.page.getByRole('textbox', { name: 'Password' }).first().fill(password);
-    await this.page.getByRole('textbox', { name: 'Email', exact: true }).fill(email);  
-    await this.page.getByRole('button', { name: 'Login' }).click();
+    await this.emailField.fill(email);
+    await this.passwordField.fill(password);
+    await this.loginAccount.click();
   }
 
   //Logout if account is logged in
   async logoutIfLoggedIn() {
     if (
-      await this.page.getByRole('button', { name: 'Log out' }).count()
+      await this.logoutAccount.count()
     ) {
-      await this.page.getByRole('button', { name: 'Log out' }).first().click();
+      await this.logoutAccount.first().click();
     }
   }
 }

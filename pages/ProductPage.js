@@ -1,31 +1,35 @@
-const locators = require('./locators');
+//const locators = require('./locators');
 
 class ProductPage {
   constructor(page) {
     this.page = page;
+    this.shopAll = page.getByLabel('Top').getByRole('link', { name: 'Shop All' });
+    this.getShirt = page.getByRole('link', { name: 'Sale Ripped T-Shirt $55.99 $' });
+    this.getSize = page.locator('#product-variant-picker').getByRole('button', { name: 'Please choose Size' });
+    this.getLarge = page.locator('#product-variant-picker label').filter({ hasText: 'L' });
+    this.addItem = this.page.getByRole('button', { name: 'Add To Cart' });
+    this.viewCart = this.page.getByRole('link', { name: /cart|bag/i });
   }
 
   //Select Product
   async openFirstProduct() {
-    await this.page.getByLabel('Top').getByRole('link', { name: 'Shop All' }).click();
-    await this.page.getByRole('link', { name: 'Sale Ripped T-Shirt $55.99 $' }).click();
-    await this.page.locator('#product-variant-picker').getByRole('button', { name: 'Please choose Size' }).click();
-    await this.page.locator('#product-variant-picker label').filter({ hasText: 'L' }).click();
+    await this.shopAll.click();
+    await this.getShirt.click();
+    await this.getSize.click();
+    await this.getLarge.click();
   }
 
   //Add Product to Cart
   async addToCart() { 
-    const addToCart = this.page.getByRole('button', { name: 'Add To Cart' });
-    if (await addToCart.count()) {
-      await addToCart.first().click();
+    if (await this.addItem.count()) {
+      await this.addItem.first().click();
     } 
   }
 
   //View the Cart
   async goToCart() {
-    const viewCart = this.page.getByRole(locators.product.cartLink.role, { name: locators.product.cartLink.name });
-    if (await viewCart.count()) {
-      await viewCart.first().click();
+    if (await this.viewCart.count()) {
+      await this.viewCart.first().click();
     } else {
       await this.page.goto('/cart');
     }

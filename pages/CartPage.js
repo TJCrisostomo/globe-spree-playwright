@@ -1,22 +1,24 @@
 const { expect } = require('@playwright/test');
-const locators = require('./locators');
+//const locators = require('./locators');
 
 class CartPage {
   constructor(page) {
     this.page = page;
+    this.getShirt = this.page.getByRole('link', { name: 'Ripped T-Shirt' });
+    this.getPrice = this.page.getByText('$55.99 $');
+    this.checkoutBtn = this.page.getByRole('link', { name: 'Checkout' });
   }
 
   //Check the availability of item
   async assertHasItem() {
-    await expect(this.page.getByRole('link', { name: 'Ripped T-Shirt' })).toBeVisible();
-    await expect(this.page.getByText('$55.99 $')).toBeVisible();
+    await expect(this.getShirt).toBeVisible();
+    await expect(this.getPrice).toBeVisible();
   }
 
   //Procedd to checkout
   async proceedToCheckout() {
-    const checkoutBtn = this.page.getByRole('link', { name: 'Checkout' });
-    if (await checkoutBtn.count()) {
-      await checkoutBtn.first().click();
+    if (await this.checkoutBtn.count()) {
+      await this.checkoutBtn.first().click();
     } else {
       await this.page.goto('/checkout');
     }

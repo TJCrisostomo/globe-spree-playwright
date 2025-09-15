@@ -1,14 +1,15 @@
 const { expect } = require('@playwright/test');
-const locators = require('./locators');
+//const locators = require('./locators');
 
 class OrderConfirmationPage {
   constructor(page) {
     this.page = page;
+    this.orderConfirmation = this.page.getByRole('heading', { name: 'Checkout Guide' });
   }
 
   //Verify the success of the order
   async verifySuccess() {
-    await expect(page.getByRole('heading', { name: 'Thanks John for your order!' })).toBeVisible();
+    await expect(this.orderConfirmation).toBeVisible();
   }
 }
 

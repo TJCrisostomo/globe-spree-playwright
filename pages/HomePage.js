@@ -1,8 +1,10 @@
-const locators = require('./locators');
+//const locators = require('./locators');
 
 class HomePage {
   constructor(page) {
     this.page = page;
+    this.userIcon = this.page.getByRole('button', { name: /account/i }).first();
+    this.myAccount = this.page.getByRole('link', { name: /account|sign in/i }).first()
   }
 
   //Go to home page
@@ -13,12 +15,10 @@ class HomePage {
 
   //Go to Open Account Page
   async openAccountMenu() {
-    const userIcon = this.page.getByRole(locators.home.userIcon.role, { name: locators.home.userIcon.name }).first();
-
-    if (await userIcon.isVisible()) {
-      await userIcon.click();
+    if (await this.userIcon.isVisible()) {
+      await this.userIcon.click();
     } else {
-      await this.page.getByRole(locators.home.accountLink.role, { name: locators.home.accountLink.name }).first().click();
+      await this.myAccount.click();
     }
   }
 }
