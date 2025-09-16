@@ -4,7 +4,6 @@ End-to-end UI tests for the [Spree Commerce demo store](https://demo.spreecommer
 
 ## ✅ Features
 - Full E2E flow: Register → Login → Browse Product → Add to Cart → Checkout → Order Confirmation
-- Centralized selectors in `pages/locators.js`
 - Page Object Model for reusability
 - Test data utilities in `utils/data.js`
 - GitHub Actions CI workflow included
